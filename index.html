@@ -58,6 +58,7 @@
                 "dojo/on",     
                 "dojo/domReady!"
             ], function(
+			    esriBasemaps,
                 Map, 
                 Draw,
                 SimpleLineSymbol,
@@ -70,10 +71,16 @@
                 on
                 ) {                
                 var tb, epWidget, lineSymbol;
+				esriBasemaps.renMap = {
+    				baseMapLayers: [{url: "http://www.arcgisonline.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer"}
+				    ],
+				    thumbnailUrl: "https://www.arcgis.com/sharing/rest/content/items/23fe7e8317ba4331b6ca72bf2a8eddb6/info/thumbnail/_E5_BE_AE_E5_8D_9A_E6_A1_8C_E9_9D_A2_E6_88_AA_E5_9B_BE_20130828171658.jpg",
+				    title: "renMap"				  
+				};
                 var map = new Map("map", {
-                    basemap: "topo",
+                    basemap: "renMap",
                     center: [109.762, 37.75],
-                    zoom: 20
+                    zoom: 5
                 });
                 map.on("load", init);
 
